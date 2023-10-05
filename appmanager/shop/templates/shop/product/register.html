@@ -1,0 +1,14 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block title %}
+    {% if category %}
+{{ category.name }}{% else %}Products{% endif %}
+{% endblock %}
+{% block content %}
+<form action="{% url 'shop:register' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">register</button>
+</form>
+
+{% endblock %}

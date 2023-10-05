@@ -8,11 +8,11 @@
 </head>
 <body>
 <a href="{% url 'shop:login' %}" class="btn btn-danger" type="button">Login</a>
-<a href="#" class="btn btn-danger" type="button">Logout</a>
-<a href="#" class="btn btn-danger" type="button">Register</a>
+<a href="{% url 'shop:logout' %}" class="btn btn-danger" type="button">Logout</a>
+<a href="{% url 'shop:register' %}" class="btn btn-danger" type="button">Register</a>
 
 <div id="header">
-    <a href="/" class="logo">My shop</a>
+    <a href="/" class="logo">MY SHOP</a>
 
 </div>
 <div id="subheader">
