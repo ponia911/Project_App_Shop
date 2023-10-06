@@ -57,7 +57,7 @@ class Login(View):
         form_login = AuthenticationForm(data=request.POST)
         if form_login.is_valid():
             login(request, form_login.get_user())
-        return redirect('product_index')
+        return redirect('shop:product_index')
 #    def get_context_data(self, *, object_list=None, **kwargs):
 #        context = super().get_context_data(**kwargs)
 #        c_def = self.get_user_context(title='Регистрация')
@@ -65,7 +65,7 @@ class Login(View):
 
 def logout_func(request):
     logout(request)
-    return redirect('product_index')
+    return redirect('shop:product_index')
 
 class Register(View):
     def get(self, request):
@@ -76,9 +76,9 @@ class Register(View):
         rf = UserCreationForm(data=request.POST)
         if rf.is_valid():
             rf.save()
-        return redirect('login.html')
-        messages.error(request, rf.errors)
-        return redirect('register.html')
+            return redirect(reverse('shop:login'))
+            messages.error(request, rf.errors)
+        return redirect(reverse('shop:register'))
 
 #def index(request):
 #    return render(request, 'shop/index.html')
