@@ -5,17 +5,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.template.loader import render_to_string
 from django.urls import reverse, reverse_lazy
 from django.views import View
-#from .forms import *
 from shop.models import Category, Product
-
+from cart.forms import CartAddProductForm
 from django.template import RequestContext
 
 
-
-#class ShopHome(DataMixin, ListView):
-#    model = Shop
-#    template_name = 'shop/index.html'
-#    context_object_name = 'posts'
 
 def product_index(request, category_slug=None):
     category = None
@@ -44,7 +38,9 @@ def product_index(request, category_slug=None):
 
 def product_about(request, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug, available=True)
-    return render(request, 'shop/product/about.html', {'product': product})
+    cart_product_form = CartAddProductForm()
+    return render(request, 'shop/product/about.html', {'product': product,
+                                                                            'cart_product_form': cart_product_form})
 
 
 
@@ -58,10 +54,6 @@ class Login(View):
         if form_login.is_valid():
             login(request, form_login.get_user())
         return redirect('shop:product_index')
-#    def get_context_data(self, *, object_list=None, **kwargs):
-#        context = super().get_context_data(**kwargs)
-#        c_def = self.get_user_context(title='Регистрация')
-#        return dict(list(context.items())) + list(c_def.items())
 
 def logout_func(request):
     logout(request)
@@ -76,9 +68,9 @@ class Register(View):
         rf = UserCreationForm(data=request.POST)
         if rf.is_valid():
             rf.save()
-            return redirect(reverse('shop:login'))
+            return redirect('shop:login')
             messages.error(request, rf.errors)
-        return redirect(reverse('shop:register'))
+        return redirect('shop:register')
 
 #def index(request):
 #    return render(request, 'shop/index.html')

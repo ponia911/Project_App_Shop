@@ -7,7 +7,7 @@
 {% block content %}
 <form action="{% url 'shop:register' %}" method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form }}
     <button type="submit" class="btn btn-primary">register</button>
 </form>
 

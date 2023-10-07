@@ -22,15 +22,15 @@ class Meta:
 class Product(models.Model):
     objects = None
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Категория')
-    name = models.CharField(max_length=200, db_index=True)
-    slug = models.SlugField(max_length=200, db_index=True)
+    name = models.CharField(max_length=200, db_index=True, verbose_name='Наименование')
+    slug = models.SlugField(max_length=200, db_index=True, verbose_name='Ссылк')
     image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
-    description = models.TextField(blank=True)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    description = models.TextField(blank=True, verbose_name='Описание')
+    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена')
     stock = models.PositiveIntegerField()
-    available = models.BooleanField(default=True)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    available = models.BooleanField(default=True, verbose_name='Наличие')
+    created = models.DateTimeField(auto_now_add=True, verbose_name='Добавлен')
+    updated = models.DateTimeField(auto_now=True, verbose_name='Обнавлен')
 
     def get_absolute_path(self):
         return reverse('shop:product_about', args=[self.slug])
