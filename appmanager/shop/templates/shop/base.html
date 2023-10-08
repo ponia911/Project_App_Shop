@@ -21,7 +21,7 @@
         {% with total_items=cart|length %}
         {% if cart|length > 0 %}
         В корзине:
-        <a href="{% url 'cart:cart_detail' %}">
+        <a href="{% url 'cart:cart_about' %}">
             {{ total_item }} шт ,${{ cart.get_total_price }}
         </a>
         {% else %}
