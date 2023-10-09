@@ -20,18 +20,6 @@ def product_index(request, category_slug=None):
                    'products': products})
 
 
-# def product_index(request, category_slug=None):
-#    category = None
-#    categories = Category.objects.all()
-#    products = Product.objects.filter(available=True)
-#    if category_slug:
-#        category = get_object_or_404(Category, slug=category_slug)
-#        products = products.filter(category=category)
-#    else:
-#        return render(request, 'shop/product/index.html', {'category': category,
-#                                                           'categories': categories,
-#                                                           'products': products})
-
 def product_about(request, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug, available=True)
     cart_product_form = CartAddProductForm()
@@ -68,25 +56,3 @@ class Register(View):
             return redirect('shop:login')
             messages.error(request, rf.errors)
         return redirect('shop:register')
-
-# def index(request):
-#    return render(request, 'shop/index.html')
-
-
-# def about(request):
-#    return render(request, 'shop/about.html')
-
-
-# def categories(request, about_id):
-#    return HttpResponse(f'<h1>Про нас </h1<p>id: {about_id}</p>')
-
-
-# def categories_by_slug(request, about_slug):
-#    return HttpResponse(f'<h1>Про нас </h1<p>slug: {about_slug}</p>')
-
-
-# def archive(request, year):
-#    if year > 2000:
-#        uri = reverse('about', args='sport', )
-#        return redirect(uri)
-#    return HttpResponse(f'<h1>Про нас </h1<p>{year}</p>')

@@ -25,7 +25,7 @@
             {{ total_item }} шт ,${{ cart.get_total_price }}
         </a>
         {% else %}
-        Корзина пустая
+        <a href="{% url 'cart:cart_about' %} class="logo> Корзина пустая</a>
         {% endif %}
         {% endwith %}
     </div>
