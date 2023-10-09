@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 
+import django
+from django.conf import settings
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,8 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'shop.apps.ShopConfig',
-    'shop', 'cart'
+    'shop', 'cart',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +135,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+#SETTINGS = dict((key,val) for key, val in locals().items() if key.isupper())
+#if not settings.configured:
+#    settings.configure(**SETTINGS)
+#django.setup()

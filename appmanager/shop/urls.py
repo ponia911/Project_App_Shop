@@ -1,7 +1,5 @@
 from django.urls import path
 from . import views
-
-from .import converters
 from .views import Login, logout_func, Register
 
 app_name = 'shop'
