@@ -37,12 +37,10 @@ class Product(models.Model):
 
     class Meta:
         ordering = ('name',)
-        verbose_name = 'Товар'
-        verbose_name_plural = 'Товары'
         index_together = (('id', 'slug'),)
 
     def get_absolute_path(self):
-        return reverse('shop:product_about', args=[self.slug])
+        return reverse('shop:product_about', args=[self.id, self.slug])
 
     def __str__(self):
         return self.name

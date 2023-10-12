@@ -20,12 +20,13 @@
     <div class="cart">
         {% with total_items=cart|length %}
         {% if cart|length > 0 %}
-      In the basket:
+        Your cart:
         <a href="{% url 'cart:cart_about' %}">
-            {{ total_item }} шт ,${{ cart.get_total_price }}
+            {{ total_item }} items{{ total_items|pluralize }},
+            ${{ cart.get_total_price }}
         </a>
         {% else %}
-        <a href="{% url 'cart:cart_about' %} class="logo>Cart is empty</a>
+        <a href="{% url 'cart:cart_about' %}" class="logo">Cart is empty</a>
         {% endif %}
         {% endwith %}
     </div>

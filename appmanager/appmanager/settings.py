@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
+#os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
 
 from pathlib import Path
 
