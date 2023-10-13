@@ -10,11 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
-
-#os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
-
 from pathlib import Path
+from django.conf import settings
 
+settings.configure(DEBUG=True)
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,6 +29,8 @@ CART_SESSION_ID = 'cart'
 SECRET_KEY = 'django-insecure-lg34$9m1(mel$*%q%bu%9y-79bpm)3%7fwq9!!(-0%3&#be%@6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
+
 DEBUG = True
 
 ALLOWED_HOSTS = []

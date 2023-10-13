@@ -40,8 +40,8 @@ class Cart(object):
 def __iter__(self):
     product_ids = self.cart.keys()
 
-    product = Product.objects.filter(id__in=product_ids)
-    for product in product:
+    products = Product.objects.filter(id__in=product_ids)
+    for product in products:
         self.cart[str(product.id)]['product'] = product
 
     for item in self.cart.values():

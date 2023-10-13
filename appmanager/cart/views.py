@@ -27,4 +27,4 @@ def cart_remove(request, product_id):
 
 def cart_about(request):
     cart = Cart(request)
-    return render(request, 'cart/about.html', {'cart': cart})
+    return render(request, 'cart/about.html', {'cart': cart_add})
