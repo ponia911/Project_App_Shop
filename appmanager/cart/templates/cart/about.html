@@ -17,21 +17,19 @@
         </tr>
         </thead>
         <tbody>
-        {% for item in cart %}
-            {% with product=item.product %}
+        {% for item in product %}
                 <tr>
                     <td>
-                        <a href="{{ product.get_absolute_path }}">
-                            <img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/no_image.png' %} {% endif %}">
+                        <a href="{{ item.get_absolute_path }}">
+                            <img src="{% if item.image %} {{ item.image.url }} {% else %} {% static 'img/no_image.png' %} {% endif %}">
                         </a>
                     </td>
-                    <td>{{ product.name }}</td>
+                    <td>{{ item.name }}</td>
                     <td>{{ item.quantity }}</td>
-                    <td><a href="{% url 'cart:cart_remove' %}">Remove</a></td>
+                    <td><a href="{% url 'cart:cart_remove' product_id=item.id %}">Remove</a></td>
                     <td class="num">${{ item.price }}</td>
                     <td class="num">${{ item.total_price }}</td>
                 </tr>
-            {% endwith %}
         {% endfor %}
         <tr class="total">
             <td>Total</td>

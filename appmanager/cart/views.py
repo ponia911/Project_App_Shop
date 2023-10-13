@@ -27,4 +27,10 @@ def cart_remove(request, product_id):
 
 def cart_about(request):
     cart = Cart(request)
-    return render(request, 'cart/about.html', {'cart': cart_add})
+    ids = []
+    for id, desc in cart.cart.items():
+        ids += id
+        product = Product.objects.filter(pk__in=ids)
+        for prod in product:
+            print(prod.id)
+    return render(request, 'cart/about.html', {'product': product, 'cart': cart})
