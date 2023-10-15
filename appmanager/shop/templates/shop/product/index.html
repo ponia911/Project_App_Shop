@@ -9,11 +9,11 @@
     <h3>Categories</h3>
     <ul>
         <li {% if not category %}class="selected" {% endif %}>
-            <a href="{% url 'shop:product_index'%}">All</a>
+            <a href="{% url 'shop:product_index'%}"class="btn btn-secondary" type="button">All</a>
         </li>
         {% for c in categories %}
         <li {% if category.slug == c.slug %}class="selected" {% endif %}>
-            <a href="{% url 'shop:product_index_by_category' category_slug=c.slug %}">{{ c.name }}</a>
+            <a href="{% url 'shop:product_index_by_category' category_slug=c.slug %}" class="btn btn-light" type="button">{{ c.name }}</a>
         </li>
         {% endfor %}
     </ul>
@@ -27,7 +27,7 @@
         <a href="{{ product.get_absolute_path }}">
             <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
         </a>
-        <a href="{{ product.get_absolute_path }}">{{ product.name }}</a><br>
+        <a href="{{ product.get_absolute_path }}" class="btn btn-info" type="buttob">{{ product.name }}</a><br>
         ${{ product.price }}
     </div>
     {% endfor %}

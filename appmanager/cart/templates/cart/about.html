@@ -26,7 +26,7 @@
                     </td>
                     <td>{{ item.name }}</td>
                     <td>{{ item.quantity }}</td>
-                    <td><a href="{% url 'cart:cart_remove' product_id=item.id %}">Remove</a></td>
+                    <td><a href="{% url 'cart:cart_remove' product_id=item.id %}" class="btn btn-primary" type="button">Remove</a></td>
                     <td class="num">${{ item.price }}</td>
                     <td class="num">${{ item.total_price }}</td>
                 </tr>
@@ -39,7 +39,7 @@
         </tbody>
     </table>
     <p class="text-right">
-        <a href="{% url 'shop:product_index' %}" class="button light">Continue shopping</a>
-        <a href="{% url 'orders:order_create' %}" class="button">Checkout</a>
+        <a href="{% url 'shop:product_index' %}" class="btn btn-primary" type="button">Continue shopping</a>
+        <a href="{% url 'orders:order_create' %}" class="btn btn-primary" type="button">Checkout</a>
     </p>
 {% endblock %}
