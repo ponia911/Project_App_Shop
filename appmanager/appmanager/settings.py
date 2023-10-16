@@ -11,8 +11,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
-from django.conf import settings
+import socket
 
+from django.conf import settings
 settings.configure(DEBUG=True)
 
 
@@ -33,7 +34,7 @@ SECRET_KEY = 'django-insecure-lg34$9m1(mel$*%q%bu%9y-79bpm)3%7fwq9!!(-0%3&#be%@6
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -92,6 +93,20 @@ DATABASES = {
     }
 }
 
+
+#DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'django_db',
+#         'USER':  'django_user',
+#         'PASSWORD': 'pwd',
+#         'HOST':  'localhost',
+#         'PORT':  5432
+#    }
+# }
+
+
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -130,4 +145,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+#INTERNAL_IPS = [
+#    # ...
+#    "127.0.0.1",
+    # ...
+#]
+#hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+#INTERNAL_IPS = [ip[:-1] + '1' for ip in ips] + ['127.0.0.1']
 
