@@ -86,24 +86,35 @@ WSGI_APPLICATION = 'appmanager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
-
-
 DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-         'NAME': 'django_db',
-         'USER':  'django_user',
-         'PASSWORD': 'pwd',
-         'HOST':  'db',
-         'PORT':  5432
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
- }
+}
+
+
+#DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'django_db',
+#         'USER':  'django_user',
+#         'PASSWORD': 'pwd',
+#         'HOST':  'db',
+#         'PORT':  5432
+#    }
+# }
+#DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.environ.get('POSTGRES_DB'),
+#         'USER':  os.environ.get('POSTGRES_USER'),
+#         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+#        'HOST':  os.environ.get('POSTGRES_HOST'),
+#         'PORT':  os.environ.get('POSTGRES_PORT'),
+#    }
+# }
+
 
 
 
@@ -148,7 +159,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #INTERNAL_IPS = [
 #    # ...
 #    "127.0.0.1",
-    # ...
+#    # ...
 #]
 #hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
 #INTERNAL_IPS = [ip[:-1] + '1' for ip in ips] + ['127.0.0.1']
