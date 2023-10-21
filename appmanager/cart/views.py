@@ -33,4 +33,5 @@ def cart_about(request):
         product = Product.objects.filter(pk__in=ids)
         for prod in product:
             print(prod.id)
+
     return render(request, 'cart/about.html', {'product': product, 'cart': cart})
