@@ -1,11 +1,7 @@
 
 from django.test import TestCase
-
 from cart.cart import Cart
 from cart.views import cart_remove, cart_about
-
-
-
 
 
 
