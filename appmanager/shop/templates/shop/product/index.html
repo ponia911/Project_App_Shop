@@ -25,7 +25,7 @@
     {% for product in products %}
     <div class="item">
         <a href="{{ product.get_absolute_path }}">
-            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
+            <img  src="{% if product.image  %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %} " width="300" height="300">
         </a>
         <a href="{{ product.get_absolute_path }}" class="btn btn-info" type="buttob">{{ product.name }}</a><br>
         ${{ product.price }}
