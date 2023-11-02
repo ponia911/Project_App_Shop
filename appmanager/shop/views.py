@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from shop.models import Category, Product
 from cart.forms import CartAddProductForm
+from django.contrib import messages
 
 
 def product_index(request, category_slug=None):
@@ -54,5 +55,5 @@ class Register(View):
         if rf.is_valid():
             rf.save()
             return redirect('shop:login')
-            messages.error(request, rf.errors)
+        messages.error(request, rf.errors)
         return redirect('shop:register')
