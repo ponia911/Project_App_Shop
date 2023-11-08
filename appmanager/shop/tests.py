@@ -1,5 +1,3 @@
-import unittest
-
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.test import TestCase
@@ -31,8 +29,7 @@ class TestShop(TestCase):
             'password1': '1234@qwer',
         }
         response = self.client.post(reverse('shop:product_index'), data=payload)
-        #user = User.object.get(username='test_username')
-        #self.assertEquals(user.password, username)
+
         self.assertEquals(response.status_code, 200)
 
     def test_logout(self):
@@ -65,6 +62,4 @@ class TestRegisterView(TestCase):
         }
         response = self.client.post(reverse('shop:register'), data=payload)
         self.assertEquals(response.status_code, 302)
-        #self.assertIn('password1', response.context['form'].errors)
-
 
